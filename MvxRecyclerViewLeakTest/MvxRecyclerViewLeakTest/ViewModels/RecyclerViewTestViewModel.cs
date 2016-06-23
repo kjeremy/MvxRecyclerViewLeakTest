@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
 using MvvmCross.Core.ViewModels;
+using MvvmCross.Platform.Platform;
 using MvxRecyclerViewLeakTest.Models;
 
 namespace MvxRecyclerViewLeakTest.ViewModels
@@ -17,7 +13,7 @@ namespace MvxRecyclerViewLeakTest.ViewModels
         public ObservableCollection<ListItem> TestList
         {
             get { return m_testList; }
-            set
+            private set
             {
                 m_testList = value;
                 RaisePropertyChanged(() => TestList);
@@ -27,7 +23,13 @@ namespace MvxRecyclerViewLeakTest.ViewModels
         public RecyclerViewTestViewModel()
         {
             TestList = new ObservableCollection<ListItem>();
+
         }
+
+        public ICommand ClickCommand { get; } = new MvxCommand<ListItem>(item =>
+        {
+            MvxTrace.Trace($"{item.Name} clicked");
+        });
 
         public virtual ICommand ButtonClick
         {
@@ -38,11 +40,10 @@ namespace MvxRecyclerViewLeakTest.ViewModels
                     TestList.Clear();
                     for (int i = 0; i < 500; i++)
                     {
-                        TestList.Add(new ListItem("Test"+i));
+                        TestList.Add(new ListItem("Test" + i));
                     }
                 });
             }
         }
-
     }
 }

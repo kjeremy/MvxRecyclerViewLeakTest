@@ -133,6 +133,8 @@
     <Compile Include="Activitys\SplashScreen.cs" />
     <Compile Include="Bootstrap\JsonPluginBootstrap.cs" />
     <Compile Include="Fragments\BaseFragment.cs" />
+    <Compile Include="Fragments\MvxRecyclerAdapterNoLeak.cs" />
+    <Compile Include="Fragments\MvxRecyclerViewHolderNoLeak.cs" />
     <Compile Include="Fragments\RecyclerViewTestFragment.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -169,6 +171,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\MainStyles.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidEnvironment Include="Environment.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
 </Project>
