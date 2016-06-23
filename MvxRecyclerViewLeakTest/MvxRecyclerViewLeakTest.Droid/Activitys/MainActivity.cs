@@ -5,7 +5,7 @@ using MvxRecyclerViewLeakTest.ViewModels;
 
 namespace MvxRecyclerViewLeakTest.Droid.Activitys
 {
-    [Activity(Label = "MainActivity", Theme = "@style/Theme.MainTest" )]
+    [Activity(Label = "MainActivity", Theme = "@style/Theme.MainTest", MainLauncher = true)]
     public class MainActivity : MvxCachingFragmentCompatActivity<MainViewModel>
     {
         protected override void OnCreate(Bundle bundle)

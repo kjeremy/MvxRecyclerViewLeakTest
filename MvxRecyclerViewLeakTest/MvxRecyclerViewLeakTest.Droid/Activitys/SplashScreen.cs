@@ -16,7 +16,7 @@ namespace MvxRecyclerViewLeakTest.Droid.Activitys
 {
     [Activity(
          Label = "MvxRecyclerViewTest"
-         , MainLauncher = true
+         //, MainLauncher = true
          , NoHistory = true)]
     public class SplashScreen : MvxSplashScreenActivity
     {
